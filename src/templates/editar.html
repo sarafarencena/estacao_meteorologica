@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h1>Editar Leitura #{{ leitura.id }}</h1>
+<form>
+    <label>Temperatura
+        <input type="number" step="0.1" id="temperatura" value="{{ leitura.temperatura }}">
+    </label>
+    <label>Umidade
+        <input type="number" step="0.1" id="umidade" value="{{ leitura.umidade }}">
+    </label>
+    <button type="button" onclick="salvar({{ leitura.id }})">Salvar</button>
+    <a href="/leituras">Cancelar</a>
+</form>
+{% endblock %}
