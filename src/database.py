@@ -29,12 +29,20 @@ def inserir_leitura(temperatura, umidade, pressao=None):
     conn.close()
     return id_novo
 
-def listar_leituras(limite=50):
+# histórico ilimitado de leituras
+def listar_leituras(limite=None): 
     conn = get_db_connection()
-    rows = conn.execute(
-        'SELECT * FROM leituras ORDER BY timestamp DESC LIMIT ?',
-        (limite,)
-    ).fetchall()
+
+    if limite:
+        rows = conn.execute(
+            'SELECT * FROM leituras ORDER BY timestamp DESC LIMIT ?',
+            (limite,)
+        ).fetchall()
+    else:
+        rows = conn.execute(
+            'SELECT * FROM leituras ORDER BY timestamp DESC'
+        ).fetchall()
+
     conn.close()
     return rows
 
