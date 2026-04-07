@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h1>Painel Principal</h1>
+<div class="cards">
+    {% for l in leituras %}
+    <div class="card">
+        <p class="valor">{{ l.temperatura }}°C</p>
+        <p class="valor">{{ l.umidade }}%</p>
+        <p class="timestamp">{{ l.timestamp }}</p>
+    </div>
+    {% endfor %}
+</div>
+<canvas id="grafico"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    fetch('/leituras?formato=json')
+        .then(r => r.json())
+        .then(dados => {
+            const labels = dados.map(d => d.timestamp).reverse();
+            const temps  = dados.map(d => d.temperatura).reverse();
+            const umids  = dados.map(d => d.umidade).reverse();
+            new Chart(document.getElementById('grafico'), {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [
+                        { label: 'Temperatura (°C)', data: temps, borderColor: '#e74c3c', fill: false },
+                        { label: 'Umidade (%)',       data: umids, borderColor: '#3498db', fill: false }
+                    ]
+                }
+            });
+        });
+</script>
+{% endblock %}
