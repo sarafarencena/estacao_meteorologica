@@ -1,0 +1,15 @@
+body { font-family: sans-serif; margin: 0; padding: 0; }
+nav { background: #2c3e50; padding: 1rem; }
+nav a { color: white; margin-right: 1rem; text-decoration: none; }
+main { padding: 2rem; }
+.cards { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+.card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; min-width: 160px; }
+.valor { font-size: 1.5rem; font-weight: bold; margin: 0; }
+.timestamp { color: #888; font-size: 0.8rem; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background: #f4f4f4; }
+canvas { max-width: 800px; margin-top: 2rem; }
+form { display: flex; flex-direction: column; gap: 1rem; max-width: 400px; }
+input { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+button { padding: 8px 16px; cursor: pointer; }
