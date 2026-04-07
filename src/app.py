@@ -19,7 +19,7 @@ def index():
 @app.route('/leituras', methods=['GET'])
 def listar():
     formato = request.args.get('formato')
-    leituras = listar_leituras()
+    leituras = listar_leituras(limite=None) # rota para histórico ilimitado de leituras
     if formato == 'json':
         return jsonify([dict(l) for l in leituras])
     return render_template('historico.html', leituras=leituras)
