@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block conteudo %}
 <h1>Painel Principal</h1>
+
+<button onclick="location.reload()" style="margin-bottom: 1rem;">
+    Atualizar
+</button>
+
 <div class="cards">
     {% for l in leituras %}
     <div class="card">
