@@ -185,6 +185,8 @@ A tela de histórico exibe todas as leituras armazenadas no banco em formato de 
 
 ![Histórico de Leituras](imagens/historico.jpeg)
 
+> Para simplificação, todas as leituras são carregadas na interface. Em cenários com maior volume de dados, seria recomendável implementar paginação ou limite de registros.
+
 
 ### Edição (`/leituras/<id>`)
 
